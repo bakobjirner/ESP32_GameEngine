@@ -9,7 +9,7 @@ public class SpriteHandler {
 
 
 
-    public String createSpriteCode(BufferedImage[] images,String name){
+    public static String createSpriteCode(BufferedImage[] images,String name){
 
         String output="";
 

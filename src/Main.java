@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String args[]){
 
-
+Builder.buildFile();
 
         BufferedImage[] img = new BufferedImage[1];
         try {
