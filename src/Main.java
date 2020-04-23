@@ -11,7 +11,7 @@ public class Main {
 
         BufferedImage[] img = new BufferedImage[1];
         try {
-            img[0] = ImageIO.read(new File("sprites/testSprite1.png"));
+            img[0] = ImageIO.read(new File("sprites/testSprite3.png"));
         } catch (IOException e) {
         }
         SpriteHandler h = new SpriteHandler();
