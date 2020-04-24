@@ -35,6 +35,13 @@ public class SpriteHandler {
         }
         output+="}; \n";
 
+        //calculate Points
+        output+="const signed short "+name+"Points[][2] = { ";
+        for (BufferedImage image:images) {
+            output+= "{ "+image.getWidth()/2+" , "+image.getHeight()/2+" }, ";
+        }
+        output+="}; \n";
+
         //calculate color values
         output+="const unsigned char "+name+"Pixels[] = {\n";
         for (int l=0;l<images.length;l++ ) {

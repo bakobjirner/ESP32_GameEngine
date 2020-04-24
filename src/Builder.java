@@ -22,9 +22,11 @@ private static String program="";
 
 public static void buildFile() {
 writeImports();
+writeSprites();
 writePinConfig();
 writeVariables();
 writeSetUp();
+writeLoop();
 System.out.print(program);
 }
 
@@ -39,9 +41,9 @@ System.out.print(program);
 }
 
 private static void writePinConfig(){
-    program+="const int redPins[] = {"+redPins[0]+redPins[1]+"};\n";
-    program+="const int greenPins[] = {"+greenPins[0]+greenPins[1]+"};\n";
-    program+="const int bluePins[] = {"+bluePins[0]+bluePins[1]+"};\n";
+    program+="const int redPins[] = {"+redPins[0]+" , "+redPins[1]+"};\n";
+    program+="const int greenPins[] = {"+greenPins[0]+" , "+greenPins[1]+"};\n";
+    program+="const int bluePins[] = {"+bluePins[0]+" , "+bluePins[1]+"};\n";
     program+="const int hsyncPin = "+hsyncPin+";\n";
     program+="const int vsyncPin = "+vsyncPin+";\n";
     program+="int inputPins[] = {"+inputPins[0]+","+inputPins[1]+","+inputPins[2]+","+inputPins[3]+"};\n";
@@ -68,6 +70,26 @@ private static void writeSetUp(){
             " pinMode(inputPins[i], INPUT_PULLDOWN); \n" +
             "}\n"+
             "}\n";
+    }
+
+    private static void writeSprites(){
+
+        for (GameObject object:gameObjects) {
+            program+="\n";
+            program+=SpriteHandler.createSpriteCode(object.getAnimation(),object.getName()+"Sprite");
+            program+="\n";
+        }
+
+
+    }
+
+    private static void writeLoop(){
+
+    program+= "void loop(){\n";
+       program+=" rockSprite.drawMix(vga, 0, 100, 100);\n";
+        program+= "delay(20);\n";
+        program+= "}\n";
+
     }
 
 
