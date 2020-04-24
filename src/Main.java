@@ -26,6 +26,9 @@ public class Main {
             Builder.setGameObjects(objects);
             Builder.buildFile();
 
+            UserInterface  ui = new UserInterface();
+            ui.drawImage(img[2],10,10);
+
 
         } catch (IOException e) {
         }
